@@ -1,3 +1,4 @@
+# Every yaml file should start with three dashes
 ---
 - hosts: all
   become: true
@@ -10,3 +11,6 @@
         - "{{ php_package }}"
       state: latest
       update_cache: yes
+
+# Every yaml file should end with three dots
+...
