@@ -1,17 +1,16 @@
-# Every yaml file should start with three dashes
 ---
+# Every yaml file should start with three dashes
 
 - hosts: all
   become: true
-  tasks: 
-
-  - name: install apache2 package
-    ansible.builtin.package:
-      name:
-        - "{{ apache_package }}"
-        - "{{ php_package }}"
-      state: latest
-      update_cache: yes
+  tasks:
+    - name: install apache2 package
+      ansible.builtin.package:
+        name:
+          - "{{ apache_package }}"
+          - "{{ php_package }}"
+        state: latest
+        update_cache: true
 
 # Every yaml file should end with three dots
 ...
