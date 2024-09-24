@@ -29,4 +29,13 @@
     group: root
     mode: 0644
   notify: restart_sshd
+
+- name: copy secret key vault encrypted file to server
+  tags: remoteLogin
+  ansible.builtin.copy:
+    src: ybox_ed25519.txt
+    dest: /tmp/ybox_ed25519
+    owner: erwura
+    group: erwura
+    mode: 0600
 ...
