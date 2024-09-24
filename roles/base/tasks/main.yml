@@ -19,4 +19,14 @@
   ansible.builtin.authorized_key:
     user: tron
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINXiASVSLIvpXNxlN3By7ZfmmlMMiVF+/9GQw7imn09G tron@debian12-ws"
+
+- name: generate sshd_config file from template
+  tags: ssh
+  template:
+    src: "{{ ssh_template_file }}"
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_sshd
 ...
