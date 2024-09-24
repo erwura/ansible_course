@@ -1,0 +1,2 @@
+# Managed by Ansible (roles)"
+tron ALL=(ALL) NOPASSWD: ALL

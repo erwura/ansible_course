@@ -1,0 +1,22 @@
+---
+- name: create user
+  tags: always
+  ansible.builtin.user:
+    name: tron
+    groups: root
+
+- name: add sudoers file for simone
+  tags: always
+  ansible.builtin.copy:
+    src: sudoers_tron
+    dest: /etc/sudoers.d/tron
+    owner: root
+    group: root
+    mode: 0440
+
+- name: add ssh key for tron user
+  tags: always
+  ansible.builtin.authorized_key:
+    user: tron
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINXiASVSLIvpXNxlN3By7ZfmmlMMiVF+/9GQw7imn09G tron@debian12-ws"
+...
